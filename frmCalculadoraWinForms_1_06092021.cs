@@ -23,92 +23,140 @@ namespace CalculadoraWinForm2019_1_06092021
 
         private void btnNumerador(object sender, EventArgs e)
         {
-            Button bt = (Button)sender;
-            txtValor.Text = txtValor.Text + bt.Text;
+            try
+            {
+                Button bt = (Button)sender;
+                txtValor.Text = txtValor.Text + bt.Text;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Problemas no numerador ==> " + ex.Message);
+            }
         }
 
         private void btnLimpa_Click(object sender, EventArgs e)
         {
-            txtValor.Text = "";
-            label1.Text = "";
-            a = 0;
-            bolValidar = false;
+            try
+            {
+                txtValor.Text = "";
+                label1.Text = "";
+                a = 0;
+                bolValidar = false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Problemas no btnLimpa ==> " + ex.Message);
+            }
         }
 
         private void btnSoma_Click(object sender, EventArgs e)
         {
-            if (bolValidar == true)
+            try
             {
-                a = a + Convert.ToDouble(txtValor.Text);
-                label1.Text = Convert.ToString(a) + "+";
-                txtValor.Text = "";
-                strOperador = "+";
+                if (bolValidar == true)
+                {
+                    a = a + Convert.ToDouble(txtValor.Text);
+                    label1.Text = Convert.ToString(a) + "+";
+                    txtValor.Text = "";
+                    strOperador = "+";
+                }
+                else
+                {
+                    label1.Text = txtValor.Text + btnSoma.Text;
+                    a = Convert.ToDouble(txtValor.Text);
+                    txtValor.Text = "";
+                    strOperador = "+";
+                    bolValidar = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                label1.Text = txtValor.Text + btnSoma.Text;
-                a = Convert.ToDouble(txtValor.Text);
-                txtValor.Text = "";
-                strOperador = "+";
-                bolValidar = true;
+
+                throw new Exception("Problemas no btnSoma ==> " + ex.Message);
             }
+            
         }
 
         private void btnSubtrai_Click(object sender, EventArgs e)
         {
-            if (bolValidar == true)
+            try
             {
-                a = a - Convert.ToDouble(txtValor.Text);
-                label1.Text = Convert.ToString(a) + "-";
-                txtValor.Text = "";
-                strOperador = "-";
+                if (bolValidar == true)
+                {
+                    a = a - Convert.ToDouble(txtValor.Text);
+                    label1.Text = Convert.ToString(a) + "-";
+                    txtValor.Text = "";
+                    strOperador = "-";
+                }
+                else
+                {
+                    label1.Text = txtValor.Text + btnSubtrai.Text;
+                    a = Convert.ToDouble(txtValor.Text);
+                    txtValor.Text = "";
+                    strOperador = "-";
+                    bolValidar = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                label1.Text = txtValor.Text + btnSubtrai.Text;
-                a = Convert.ToDouble(txtValor.Text);
-                txtValor.Text = "";
-                strOperador = "-";
-                bolValidar = true;
+                throw new Exception("Problemas no btnSubtrai ==> " + ex.Message);
             }
         }
 
         private void btnMultiplica_Click(object sender, EventArgs e)
         {
-            if (bolValidar == true)
+            try
             {
-                a = a * Convert.ToDouble(txtValor.Text);
-                label1.Text = Convert.ToString(a) + "*";
-                txtValor.Text = "";
-                strOperador = "*";
+                if (bolValidar == true)
+                {
+                    a = a * Convert.ToDouble(txtValor.Text);
+                    label1.Text = Convert.ToString(a) + "*";
+                    txtValor.Text = "";
+                    strOperador = "*";
+                }
+                else
+                {
+                    label1.Text = txtValor.Text + btnMultiplica.Text;
+                    a = Convert.ToDouble(txtValor.Text);
+                    txtValor.Text = "";
+                    strOperador = "*";
+                    bolValidar = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                label1.Text = txtValor.Text + btnMultiplica.Text;
-                a = Convert.ToDouble(txtValor.Text);
-                txtValor.Text = "";
-                strOperador = "*";
-                bolValidar = true;
+
+                throw new Exception("Problemas no btnMultiplica ==> " + ex.Message);
             }
+            
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            if (bolValidar == true)
+            try
             {
-                a = a / Convert.ToDouble(txtValor.Text);
-                label1.Text = Convert.ToString(a) + "/";
-                txtValor.Text = "";
-                strOperador = "/";
+                if (bolValidar == true)
+                {
+                    a = a / Convert.ToDouble(txtValor.Text);
+                    label1.Text = Convert.ToString(a) + "/";
+                    txtValor.Text = "";
+                    strOperador = "/";
+                }
+                else
+                {
+                    label1.Text = txtValor.Text + btnDivide.Text;
+                    a = Convert.ToDouble(txtValor.Text);
+                    txtValor.Text = "";
+                    strOperador = "/";
+                    bolValidar = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                label1.Text = txtValor.Text + btnDivide.Text;
-                a = Convert.ToDouble(txtValor.Text);
-                txtValor.Text = "";
-                strOperador = "/";
-                bolValidar = true;
+
+                throw new Exception("Problemas no btndivide ==> " + ex.Message);
             }
+            
         }
 
         private void btnIgual_Click(object sender, EventArgs e)
@@ -143,7 +191,7 @@ namespace CalculadoraWinForm2019_1_06092021
             catch (Exception ex)
             {
 
-                throw new Exception("Problemas na operação ==> " + ex.Message);
+                throw new Exception("Problemas no btnIgual ==> " + ex.Message);
             }
             
         }
